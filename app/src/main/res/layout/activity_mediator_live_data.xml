@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TransformationMapActivity"
+    tools:context=".MediatorLiveDataActivity"
     android:paddingHorizontal="16dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Int LiveData:"
+            android:text="Last Saved Value:"
             android:background="#686868"
             android:textColor="@color/white"
-            android:id="@+id/label_for_int_live_data"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:gravity="center"
             android:paddingVertical="16dp"
@@ -31,8 +30,28 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/black"
-            tools:text="0"
-            android:id="@+id/text_view_for_int_data"
+            android:id="@+id/text_view_last_saved_value"
+            android:paddingVertical="16dp"
+            android:background="#F3F3F3"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LiveData 1:"
+            android:background="#686868"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:gravity="center"
+            android:paddingVertical="16dp"
+            android:layout_marginTop="16dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/black"
+            android:id="@+id/text_view_livedata_1"
             android:paddingVertical="16dp"
             android:background="#F3F3F3"/>
 
@@ -40,9 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Transformed LiveData (String):"
+            android:text="LiveData 2:"
             android:background="#686868"
-            android:id="@+id/label_for_string_live_data"
             android:gravity="center"
             android:textColor="@color/white"
             android:paddingVertical="16dp"
@@ -55,38 +73,32 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/black"
-            android:id="@+id/text_view_for_string_data"
-            android:text="Transformations disabled"
+            android:id="@+id/text_view_livedata_2"
             android:paddingVertical="16dp"
             android:background="#F3F3F3"/>
-
-    </LinearLayout>
-
-    <SeekBar
-        app:layout_constraintBottom_toTopOf="@id/enable_transformations_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="20"
-        android:id="@+id/my_seek_bar"
-        />
-        <androidx.appcompat.widget.SwitchCompat
+        <EditText
+            android:id="@+id/myEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/enable_transformations_switch"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@id/switchActivityButton"
-            android:text="use transformations"
-            android:layout_marginHorizontal="16dp"
-            android:paddingVertical="24dp"/>
-
+            android:hint="enter some text"
+            android:paddingHorizontal="16dp"
+            android:layout_marginVertical="20dp"
+            />
         <Button
-            android:id="@+id/switchActivityButton"
+            android:id="@+id/save_livedata_1"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="mediator livedata activity"
+            android:text="save to livedata 1"
             />
+        <Button
+            android:id="@+id/save_livedata_2"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="save to livedata 2"
+            />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
